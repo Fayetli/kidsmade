@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Slot : MonoBehaviour, IDropHandler
 {
@@ -58,7 +59,7 @@ public class Slot : MonoBehaviour, IDropHandler
                     var_2_d.gameObject.SetActive(true);
                 else if (DragHandler.itemBeingDragged.transform.tag == "3c")
                     var_3_d.gameObject.SetActive(true);
-                //DragHandler.itemBeingDragged.SetActive(false);
+                //DragHandler.itemBeingDragged.GetComponent<Image>().enabled = false;
             }
             else if(DragHandler.itemBeingDragged.transform.parent.gameObject.tag == "SlotIn" ||
                 DragHandler.itemBeingDragged.transform.parent.gameObject.tag == "FinishSlot")
@@ -73,7 +74,8 @@ public class Slot : MonoBehaviour, IDropHandler
                     DragHandler.itemBeingDragged.transform.SetParent(transform);
                     item.transform.SetParent(aux);
                 }
-                //DragHandler.itemBeingDragged.SetActive(true);
+                //transform.gameObject.GetComponent<Image>().enabled = true;
+                //DragHandler.itemBeingDragged.GetComponent<Image>().enabled = true;
             }
             //else if()
         }
