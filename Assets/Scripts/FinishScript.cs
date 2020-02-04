@@ -20,30 +20,40 @@ public class FinishScript : MonoBehaviour
     int i = 0;
     void activateTruePictures()
     {
-        if (slots[i].gameObject.transform.GetChild(0).gameObject.tag == "1c") {
-            GameObject truePicture = cases[i].transform.GetChild(2).gameObject;
-            truePicture.SetActive(true);
-        }
-        else if (slots[i].gameObject.transform.GetChild(0).gameObject.tag == "2c")
+        slots[i].transform.GetChild(0).gameObject.SetActive(false);
+
+        if (slots[i].transform.GetChild(0).gameObject.tag == "1c") 
         {
-            GameObject truePicture = cases[i].transform.GetChild(4).gameObject;
-            truePicture.SetActive(true);
+            cases[i].transform.GetChild(1).gameObject.SetActive(false);
+            cases[i].transform.GetChild(0).gameObject.SetActive(true);
+            Debug.Log("finish" + i + 1);
         }
-        else if (slots[i].gameObject.transform.GetChild(0).gameObject.tag == "3c")
+        else if (slots[i].transform.GetChild(0).gameObject.tag == "2c")
         {
-            GameObject truePicture = cases[i].transform.GetChild(4).gameObject;
-            truePicture.SetActive(true);
+            cases[i].transform.GetChild(3).gameObject.SetActive(false);
+            cases[i].transform.GetChild(2).gameObject.SetActive(true);
+            Debug.Log("finish");
+        }
+        else if (slots[i].transform.GetChild(0).gameObject.tag == "3c")
+        {
+            cases[i].transform.GetChild(5).gameObject.SetActive(false);
+            cases[i].transform.GetChild(4).gameObject.SetActive(true);
+            Debug.Log("finish");
         }
         i++;
+        
     }
     public void finishButton()
     {
+        slots[3].GetComponent<Image>().enabled = false;
+        GameObject.Find("SlotsOutPanel").SetActive(false);
+        GameObject.Find("Button(Finish)").SetActive(false);
 
         foreach (GameObject obj in slots)
         {
             allAnswers++;
             
-            //Invoke("activateTruePictures", allAnswers * 2);
+            Invoke("activateTruePictures", allAnswers);
             if (obj.gameObject.transform.GetChild(0).transform.tag == "true")
             {
                 correctAnswers++;
@@ -55,7 +65,6 @@ public class FinishScript : MonoBehaviour
         {
             procentCorrectAnswers = correctAnswers * 100 / allAnswers;
         }
-
 
         //FinishText.text = Convert.ToString(procentCorrectAnswers);
         //EndCanvas.gameObject.SetActive(true);*/

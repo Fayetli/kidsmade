@@ -6,12 +6,7 @@ using UnityEngine.UI;
 
 public class Slot : MonoBehaviour, IDropHandler
 {
-    public GameObject var_1_c;
-    public GameObject var_1_d;
-    public GameObject var_2_c;
-    public GameObject var_2_d;
-    public GameObject var_3_c;
-    public GameObject var_3_d;
+    public GameObject Case;
 
     public GameObject item
     {
@@ -25,6 +20,8 @@ public class Slot : MonoBehaviour, IDropHandler
         }
     }
 
+    public GameObject lastSlot;
+
     #region IdropHandler implementation
     public void OnDrop(PointerEventData eventData)
     {
@@ -36,30 +33,38 @@ public class Slot : MonoBehaviour, IDropHandler
                 DragHandler.itemBeingDragged.transform.parent.gameObject.tag == "SlotIn") { }
             else if (transform.gameObject.GetComponent<ControllerScript>().canSet != false)
             {
+                lastSlot = DragHandler.itemBeingDragged.transform.parent.gameObject;
                 if (!item && DragHandler.itemBeingDragged.transform.parent.gameObject.tag != "SlotIn" &&
                     DragHandler.itemBeingDragged.transform.parent.gameObject.tag != "FinishSlot")
                 {
+                    
                     DragHandler.itemBeingDragged.transform.SetParent(transform);
                 }
                 else
                 {
+                    
                     Transform aux = DragHandler.itemBeingDragged.transform.parent;
                     DragHandler.itemBeingDragged.transform.SetParent(transform);
                     item.transform.SetParent(aux);
                 }
-
-                var_1_d.gameObject.SetActive(false);
-                var_2_d.gameObject.SetActive(false);
-                var_3_d.gameObject.SetActive(false);
+                if(lastSlot.transform.childCount > 0)
+                    lastSlot.transform.GetChild(0).gameObject.GetComponent<Image>().enabled = true;
+                
+                Case.transform.GetChild(1).gameObject.SetActive(false);
+                Case.transform.GetChild(3).gameObject.SetActive(false);
+                Case.transform.GetChild(5).gameObject.SetActive(false);
 
 
                 if (DragHandler.itemBeingDragged.transform.tag == "1c")
-                    var_1_d.gameObject.SetActive(true);
+                    Case.transform.GetChild(1).gameObject.SetActive(true);
                 else if (DragHandler.itemBeingDragged.transform.tag == "2c")
-                    var_2_d.gameObject.SetActive(true);
+                    Case.transform.GetChild(3).gameObject.SetActive(true);
                 else if (DragHandler.itemBeingDragged.transform.tag == "3c")
-                    var_3_d.gameObject.SetActive(true);
-                //DragHandler.itemBeingDragged.GetComponent<Image>().enabled = false;
+                    Case.transform.GetChild(5).gameObject.SetActive(true);
+
+
+                DragHandler.itemBeingDragged.GetComponent<Image>().enabled = false;
+                
             }
             else if(DragHandler.itemBeingDragged.transform.parent.gameObject.tag == "SlotIn" ||
                 DragHandler.itemBeingDragged.transform.parent.gameObject.tag == "FinishSlot")

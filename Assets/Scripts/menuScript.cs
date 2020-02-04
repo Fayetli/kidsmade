@@ -5,7 +5,6 @@ using UnityEngine;
 public class menuScript : MonoBehaviour
 {
     public GameObject HUD;
-    public GameObject SlotsInPanel;
     public GameObject SlotsOutPanel;
     public GameObject SlotIn;
 
@@ -24,7 +23,6 @@ public class menuScript : MonoBehaviour
 
     private void startHUD()
     {
-        SlotsInPanel.SetActive(true);
         SlotsOutPanel.SetActive(true);
         SlotIn.SetActive(true);
 
