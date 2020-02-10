@@ -15,8 +15,7 @@ public class ControllerScript : MonoBehaviour
     {
         if (gameObject.transform.tag != "FinishSlot" && canSet != false)
         {
-            //optimize here
-            if (transform.childCount > 0 /*&& button.gameObject.activeSelf == false*/)
+            if (transform.childCount > 0 && button.gameObject.activeInHierarchy == false)
             {
                 button.gameObject.GetComponent<buttonScript>().slot = gameObject;
                 button.gameObject.GetComponent<buttonScript>().nextSlot = nextSlot;
@@ -32,8 +31,7 @@ public class ControllerScript : MonoBehaviour
         }
         else if (gameObject.transform.tag == "FinishSlot")
         {
-            //optimize here
-            if (transform.childCount > 0 /*&& button.gameObject.activeSelf == false*/)
+            if (transform.childCount > 0 && button.gameObject.activeInHierarchy == false)
             {
                 if (activateButton == true)
                 {

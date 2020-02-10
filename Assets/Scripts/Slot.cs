@@ -25,8 +25,7 @@ public class Slot : MonoBehaviour, IDropHandler
     #region IdropHandler implementation
     public void OnDrop(PointerEventData eventData)
     {
-            /*GetComponent<ControllerScript>().canSet != false &&
-            DragHandler.itemBeingDragged.transform.parent.tag != "SlotIn")*/
+            
         if (transform.gameObject.tag == "SlotIn" || transform.gameObject.tag == "FinishSlot")
         {
             if(DragHandler.itemBeingDragged.transform.parent.gameObject.tag == "FinishSlot" ||
@@ -79,10 +78,9 @@ public class Slot : MonoBehaviour, IDropHandler
                     DragHandler.itemBeingDragged.transform.SetParent(transform);
                     item.transform.SetParent(aux);
                 }
-                //transform.gameObject.GetComponent<Image>().enabled = true;
-                //DragHandler.itemBeingDragged.GetComponent<Image>().enabled = true;
+          
             }
-            //else if()
+            
         }
     }
     #endregion
