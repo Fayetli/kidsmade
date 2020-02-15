@@ -9,7 +9,6 @@ public class FinishScript : MonoBehaviour
     public GameObject[] slots;
     public Text FinishText;
     public GameObject[] cases;
-    //public Canvas EndCanvas;
 
     int correctAnswers = 0;
     int allAnswers;
@@ -54,20 +53,22 @@ public class FinishScript : MonoBehaviour
             allAnswers++;
             
             Invoke("activateTruePictures", allAnswers);
+            /*
             if (obj.gameObject.transform.GetChild(0).transform.tag == "true")
             {
                 correctAnswers++;
             }
+            */
         }
 
+        /*
         float procentCorrectAnswers = 0;
         if (correctAnswers > 0)
         {
             procentCorrectAnswers = correctAnswers * 100 / allAnswers;
         }
-
-        //FinishText.text = Convert.ToString(procentCorrectAnswers);
-        //EndCanvas.gameObject.SetActive(true);*/
+        */
+        
     }
 
 

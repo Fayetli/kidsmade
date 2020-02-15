@@ -9,8 +9,7 @@ public class FinishControllerScript : MonoBehaviour
 
     public void Update()
     {
-        //optimize here
-        if (transform.childCount > 0 /*&& button.gameObject.activeSelf == false*/)
+        if (transform.childCount > 0 && button.gameObject.activeInHierarchy == false)
         {
             
             if (activateButton == true)
