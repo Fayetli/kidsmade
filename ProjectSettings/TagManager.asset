@@ -15,6 +15,8 @@ TagManager:
   - 2d
   - 3c
   - 3d
+  - slot_object
+  - object
   layers:
   - Default
   - TransparentFX
@@ -25,8 +27,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - others
+  - Slot Object
   - 
   - 
   - 
@@ -51,4 +53,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Slot
+    uniqueID: 3955501491
+    locked: 0
+  - name: Slot Sprite
+    uniqueID: 695933195
+    locked: 0
+  - name: menuBG
+    uniqueID: 3659843173
     locked: 0

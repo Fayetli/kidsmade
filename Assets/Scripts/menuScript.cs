@@ -17,7 +17,7 @@ public class menuScript : MonoBehaviour
 
     void startAnimation()
     {
-        GameObject.Find("controller").GetComponent<Animator>().SetBool("is_ON", true);
+        GameObject.Find("controller").GetComponent<Animator>().SetBool("is_ACTIVE", true);
         Invoke("startHUD", 1);
     }
 
