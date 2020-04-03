@@ -416,9 +416,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e80aae36ec47e7e4585896584068b6b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 0}
-  filename: data.json
-  path: 
 --- !u!1 &261568827
 GameObject:
   m_ObjectHideFlags: 0
@@ -1217,6 +1214,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7420548530315713539}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &981206800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981206798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc4e76681a6e854383113afcdf90ae8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
+  CanUse: 1
 --- !u!50 &981206801
 Rigidbody2D:
   serializedVersion: 4
@@ -1611,6 +1622,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7420548530315713539}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1215278190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215278188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc4e76681a6e854383113afcdf90ae8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
+  CanUse: 1
 --- !u!50 &1215278191
 Rigidbody2D:
   serializedVersion: 4
@@ -2039,6 +2064,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7420548530315713539}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1506504467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506504465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc4e76681a6e854383113afcdf90ae8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
+  CanUse: 1
 --- !u!50 &1506504468
 Rigidbody2D:
   serializedVersion: 4
