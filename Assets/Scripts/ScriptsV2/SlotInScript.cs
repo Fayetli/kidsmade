@@ -15,12 +15,6 @@ public class SlotInScript : MonoBehaviour
 
             if(!button.gameObject.activeInHierarchy)
                 button.gameObject.SetActive(true);
-
-
-
-
-
-
         }
     }
 

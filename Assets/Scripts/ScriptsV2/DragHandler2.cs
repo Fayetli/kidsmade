@@ -83,13 +83,16 @@ public class DragHandler2 : MonoBehaviour
         Cursor = Camera.main.ScreenToWorldPoint(Cursor);
 
 
-        if (MouseDown == true){
+        if (MouseDown == true)
+        {
             this.transform.position = Cursor;
         }
         else
         {
             if (trigger == true)
-              this.GetComponent<SpriteRenderer>().enabled = false;
+            {
+                //this.GetComponent<SpriteRenderer>().enabled = false;
+            }
 
             this.transform.localPosition = new Vector3(0, 0, 0);
 

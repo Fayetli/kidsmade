@@ -9,14 +9,9 @@ TagManager:
   - FinishSlot
   - true
   - false
-  - 1c
-  - 1d
-  - 2c
-  - 2d
-  - 3c
-  - 3d
   - slot_object
   - object
+  - PanelSlotOut
   layers:
   - Default
   - TransparentFX

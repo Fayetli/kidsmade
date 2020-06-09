@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6200980811108703183}
   - component: {fileID: 6200980811108703180}
   - component: {fileID: 6200980811108703181}
-  - component: {fileID: 6200980811108703170}
   m_Layer: 0
   m_Name: Button(Next)
   m_TagString: Untagged
@@ -118,7 +117,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6200980811108703170}
+      - m_Target: {fileID: 0}
         m_MethodName: activateNextSlot
         m_Mode: 1
         m_Arguments:
@@ -129,19 +128,3 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6200980811108703170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6200980811108703168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41a3460815dcddb408b50bd55b1ba742, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slot: {fileID: 0}
-  nextSlot: {fileID: 0}
-  nextPanel: {fileID: 0}
-  panel: {fileID: 0}
