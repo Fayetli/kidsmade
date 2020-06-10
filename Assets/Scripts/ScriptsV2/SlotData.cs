@@ -10,7 +10,10 @@ public class SlotData : MonoBehaviour
     public GameObject[] panelsSlotsOut;
     private int counter = 0;
 
-    void BubbleSort(GameObject[] array)
+    public GameObject buttonNext;
+    public GameObject buttonFinish;
+
+    void BubbleSort(GameObject[] array)//sorting for indexes
     {
         for (int i = 0; i < array.Length; i++)
         {
@@ -30,19 +33,22 @@ public class SlotData : MonoBehaviour
         }
         Debug.Log("Sorting Complete!");
     }
-    void Start()
+    void Start()//find all slotsIn, Panels with slotsOut, then disable all and activate only firsts
     {
+        counter = 0;
+
         slotsIn = GameObject.FindGameObjectsWithTag("SlotIn");
 
         foreach (GameObject x in slotsIn)
         {
             x.gameObject.SetActive(false);
-            x.transform.localPosition = new Vector3(0, 0, -5.0f);//fix object slot //+refactoring
+            x.transform.localPosition = new Vector3(0, 0, -5.0f);//fix object slot
+            slotsIn[counter].GetComponent<Collider2D>().enabled = false;//
         }
 
         BubbleSort(slotsIn);
-        slotsIn[0].SetActive(true);
-        counter = 0;
+        slotsIn[counter].SetActive(true);
+        slotsIn[counter].GetComponent<Collider2D>().enabled = true;//
 
         panelsSlotsOut = GameObject.FindGameObjectsWithTag("PanelSlotOut");
 
@@ -52,27 +58,52 @@ public class SlotData : MonoBehaviour
         }
 
         BubbleSort(panelsSlotsOut);
-        panelsSlotsOut[0].SetActive(true);
+        panelsSlotsOut[counter].SetActive(true);
     }
 
-    public void ActivateNextSlot()
+    public void ActivateNextSlot()//disable current slot and activate next slot
     {
         Debug.Log("ActivateNextSlot");
 
         slotsIn[counter].GetComponent<SpriteRenderer>().enabled = false;
-        slotsIn[counter].GetComponent<SlotInScript>().CanUse = false;
+        slotsIn[counter].GetComponent<Collider2D>().enabled = false;
+        slotsIn[counter].transform.GetChild(0).gameObject.GetComponent<Collider2D>().enabled = false;
 
         panelsSlotsOut[counter].SetActive(false);
 
         counter++;
 
-        slotsIn[counter].SetActive(true);
-        slotsIn[counter].GetComponent<SpriteRenderer>().enabled = true;
-        slotsIn[counter].GetComponent<SlotInScript>().CanUse = true;
+        if (counter < slotsIn.Length)
+        {
+            slotsIn[counter].SetActive(true);
+            slotsIn[counter].GetComponent<SpriteRenderer>().enabled = true;
+            slotsIn[counter].GetComponent<Collider2D>().enabled = true;
+        }
+        
+        
+        if(counter < panelsSlotsOut.Length)
+            panelsSlotsOut[counter].SetActive(true);
+    }
 
-        panelsSlotsOut[counter].SetActive(true);
-
-
+    public void ActivateButton()
+    {
+        Debug.Log("Activate Button!");
+        if (counter < slotsIn.Length - 1)
+        {
+            Debug.Log("Counter: " + counter + ", button next activated!");
+            if (!buttonNext.gameObject.activeInHierarchy)
+            {
+                buttonNext.gameObject.SetActive(true);
+            }
+        }
+        else if (counter == slotsIn.Length - 1)
+        {
+            Debug.Log("Counter: " + counter + ", button finish activated!");
+            if (!buttonFinish.gameObject.activeInHierarchy)
+            {
+                buttonFinish.gameObject.SetActive(true);
+            }
+        }
     }
 
     // Update is called once per frame

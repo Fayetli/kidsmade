@@ -164,8 +164,8 @@ GameObject:
   m_Component:
   - component: {fileID: 70525747}
   - component: {fileID: 70525750}
-  - component: {fileID: 70525749}
   - component: {fileID: 70525748}
+  - component: {fileID: 70525749}
   m_Layer: 10
   m_Name: prt_07
   m_TagString: slot_object
@@ -222,11 +222,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 70525746}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bed4a0f4355ecf84c8392cb65f6c08f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 1364cf00403067f43a37b68b6fa9cf40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MouseDown: 0
-  index: 0
 --- !u!212 &70525750
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -551,8 +550,8 @@ GameObject:
   m_Component:
   - component: {fileID: 248785294}
   - component: {fileID: 248785297}
-  - component: {fileID: 248785296}
   - component: {fileID: 248785295}
+  - component: {fileID: 248785296}
   m_Layer: 10
   m_Name: prt_08
   m_TagString: slot_object
@@ -609,11 +608,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 248785293}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bed4a0f4355ecf84c8392cb65f6c08f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 1364cf00403067f43a37b68b6fa9cf40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MouseDown: 0
-  index: 0
 --- !u!212 &248785297
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -905,7 +903,7 @@ GameObject:
   - component: {fileID: 388740704}
   - component: {fileID: 388740703}
   m_Layer: 0
-  m_Name: SlotInData
+  m_Name: SlotData
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -925,6 +923,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotsIn: []
   panelsSlotsOut: []
+  buttonNext: {fileID: 569759447}
+  buttonFinish: {fileID: 823406829}
 --- !u!4 &388740704
 Transform:
   m_ObjectHideFlags: 0
@@ -1138,8 +1138,8 @@ GameObject:
   m_Component:
   - component: {fileID: 518045723}
   - component: {fileID: 518045726}
-  - component: {fileID: 518045725}
   - component: {fileID: 518045724}
+  - component: {fileID: 518045725}
   m_Layer: 10
   m_Name: prt_08
   m_TagString: slot_object
@@ -1196,11 +1196,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 518045722}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bed4a0f4355ecf84c8392cb65f6c08f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 1364cf00403067f43a37b68b6fa9cf40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MouseDown: 0
-  index: 0
 --- !u!212 &518045726
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1352,8 +1351,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc4e76681a6e854383113afcdf90ae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 569759447}
-  CanUse: 1
 --- !u!61 &566948266
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1549,7 +1546,7 @@ RectTransform:
   - {fileID: 1085753474}
   - {fileID: 1040664573}
   m_Father: {fileID: 1907188180}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1804,6 +1801,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &823406829 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6594254226432604387, guid: 6e1a56bb512f1654fb98b44b9e0464eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1520832254}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &823406830 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6594254226432604384, guid: 6e1a56bb512f1654fb98b44b9e0464eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1520832254}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &832316899
 GameObject:
   m_ObjectHideFlags: 0
@@ -1896,8 +1905,8 @@ GameObject:
   m_Component:
   - component: {fileID: 967249442}
   - component: {fileID: 967249445}
-  - component: {fileID: 967249444}
   - component: {fileID: 967249443}
+  - component: {fileID: 967249444}
   m_Layer: 10
   m_Name: prt_07
   m_TagString: slot_object
@@ -1954,11 +1963,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 967249441}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bed4a0f4355ecf84c8392cb65f6c08f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 1364cf00403067f43a37b68b6fa9cf40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MouseDown: 0
-  index: 0
 --- !u!212 &967249445
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2027,8 +2035,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc4e76681a6e854383113afcdf90ae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 569759447}
-  CanUse: 0
 --- !u!50 &981206801
 Rigidbody2D:
   serializedVersion: 4
@@ -2685,8 +2691,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc4e76681a6e854383113afcdf90ae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 569759447}
-  CanUse: 0
 --- !u!50 &1215278191
 Rigidbody2D:
   serializedVersion: 4
@@ -2744,8 +2748,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1264843667}
   - component: {fileID: 1264843668}
-  - component: {fileID: 1264843670}
   - component: {fileID: 1264843671}
+  - component: {fileID: 1264843669}
   m_Layer: 10
   m_Name: prt_07
   m_TagString: slot_object
@@ -2817,7 +2821,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1264843670
+--- !u!114 &1264843669
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2826,11 +2830,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1264843666}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bed4a0f4355ecf84c8392cb65f6c08f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 1364cf00403067f43a37b68b6fa9cf40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MouseDown: 0
-  index: 0
 --- !u!61 &1264843671
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2983,8 +2986,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1408778736}
   - component: {fileID: 1408778739}
-  - component: {fileID: 1408778738}
   - component: {fileID: 1408778737}
+  - component: {fileID: 1408778738}
   m_Layer: 10
   m_Name: prt_08
   m_TagString: slot_object
@@ -3041,11 +3044,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1408778735}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bed4a0f4355ecf84c8392cb65f6c08f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 1364cf00403067f43a37b68b6fa9cf40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MouseDown: 0
-  index: 0
 --- !u!212 &1408778739
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3206,8 +3208,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1424047025}
   - component: {fileID: 1424047028}
-  - component: {fileID: 1424047027}
   - component: {fileID: 1424047026}
+  - component: {fileID: 1424047027}
   m_Layer: 10
   m_Name: prt_09
   m_TagString: slot_object
@@ -3264,11 +3266,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1424047024}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bed4a0f4355ecf84c8392cb65f6c08f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 1364cf00403067f43a37b68b6fa9cf40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MouseDown: 0
-  index: 0
 --- !u!212 &1424047028
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3329,8 +3330,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1468929052}
   - component: {fileID: 1468929055}
-  - component: {fileID: 1468929054}
   - component: {fileID: 1468929053}
+  - component: {fileID: 1468929054}
   m_Layer: 10
   m_Name: prt_07
   m_TagString: slot_object
@@ -3387,11 +3388,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1468929051}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bed4a0f4355ecf84c8392cb65f6c08f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 1364cf00403067f43a37b68b6fa9cf40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MouseDown: 0
-  index: 0
 --- !u!212 &1468929055
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3452,8 +3452,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1490217597}
   - component: {fileID: 1490217598}
-  - component: {fileID: 1490217600}
   - component: {fileID: 1490217599}
+  - component: {fileID: 1490217600}
   m_Layer: 10
   m_Name: prt_08
   m_TagString: slot_object
@@ -3560,11 +3560,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1490217596}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bed4a0f4355ecf84c8392cb65f6c08f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 1364cf00403067f43a37b68b6fa9cf40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MouseDown: 0
-  index: 0
 --- !u!1 &1506504465 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7420548530983520791, guid: 52ec10bf18b653b4c9748344e20e7ab8,
@@ -3583,8 +3582,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc4e76681a6e854383113afcdf90ae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 569759447}
-  CanUse: 0
 --- !u!50 &1506504468
 Rigidbody2D:
   serializedVersion: 4
@@ -3632,6 +3629,130 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.74, y: 1.74}
   m_EdgeRadius: 0
+--- !u!1001 &1520832254
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1907188180}
+    m_Modifications:
+    - target: {fileID: 6594254226432604384, guid: 6e1a56bb512f1654fb98b44b9e0464eb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594254226432604384, guid: 6e1a56bb512f1654fb98b44b9e0464eb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594254226432604384, guid: 6e1a56bb512f1654fb98b44b9e0464eb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594254226432604384, guid: 6e1a56bb512f1654fb98b44b9e0464eb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594254226432604384, guid: 6e1a56bb512f1654fb98b44b9e0464eb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594254226432604384, guid: 6e1a56bb512f1654fb98b44b9e0464eb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594254226432604384, guid: 6e1a56bb512f1654fb98b44b9e0464eb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594254226432604384, guid: 6e1a56bb512f1654fb98b44b9e0464eb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594254226432604384, guid: 6e1a56bb512f1654fb98b44b9e0464eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594254226432604384, guid: 6e1a56bb512f1654fb98b44b9e0464eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594254226432604384, guid: 6e1a56bb512f1654fb98b44b9e0464eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594254226432604384, guid: 6e1a56bb512f1654fb98b44b9e0464eb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -148
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594254226432604384, guid: 6e1a56bb512f1654fb98b44b9e0464eb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 67
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594254226432604384, guid: 6e1a56bb512f1654fb98b44b9e0464eb,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 248
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594254226432604384, guid: 6e1a56bb512f1654fb98b44b9e0464eb,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 72.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594254226432604384, guid: 6e1a56bb512f1654fb98b44b9e0464eb,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594254226432604384, guid: 6e1a56bb512f1654fb98b44b9e0464eb,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594254226432604384, guid: 6e1a56bb512f1654fb98b44b9e0464eb,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594254226432604384, guid: 6e1a56bb512f1654fb98b44b9e0464eb,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594254226432604384, guid: 6e1a56bb512f1654fb98b44b9e0464eb,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594254226432604384, guid: 6e1a56bb512f1654fb98b44b9e0464eb,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594254226432604387, guid: 6e1a56bb512f1654fb98b44b9e0464eb,
+        type: 3}
+      propertyPath: m_Name
+      value: Button(Finish)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594254226432604387, guid: 6e1a56bb512f1654fb98b44b9e0464eb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6e1a56bb512f1654fb98b44b9e0464eb, type: 3}
 --- !u!1 &1584623406
 GameObject:
   m_ObjectHideFlags: 0
@@ -3642,8 +3763,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1584623407}
   - component: {fileID: 1584623408}
-  - component: {fileID: 1584623410}
   - component: {fileID: 1584623409}
+  - component: {fileID: 1584623410}
   m_Layer: 10
   m_Name: prt_09
   m_TagString: slot_object
@@ -3750,11 +3871,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1584623406}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bed4a0f4355ecf84c8392cb65f6c08f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 1364cf00403067f43a37b68b6fa9cf40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MouseDown: 0
-  index: 0
 --- !u!1 &1587819581
 GameObject:
   m_ObjectHideFlags: 0
@@ -3847,8 +3967,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1636649938}
   - component: {fileID: 1636649941}
-  - component: {fileID: 1636649940}
   - component: {fileID: 1636649939}
+  - component: {fileID: 1636649940}
   m_Layer: 10
   m_Name: prt_09
   m_TagString: slot_object
@@ -3905,11 +4025,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1636649937}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bed4a0f4355ecf84c8392cb65f6c08f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 1364cf00403067f43a37b68b6fa9cf40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MouseDown: 0
-  index: 0
 --- !u!212 &1636649941
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4599,6 +4718,7 @@ RectTransform:
   m_Children:
   - {fileID: 1777084225}
   - {fileID: 569759448}
+  - {fileID: 823406830}
   - {fileID: 685357110}
   m_Father: {fileID: 1068019282}
   m_RootOrder: 0
@@ -4846,8 +4966,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1990056247}
   - component: {fileID: 1990056250}
-  - component: {fileID: 1990056249}
   - component: {fileID: 1990056248}
+  - component: {fileID: 1990056249}
   m_Layer: 10
   m_Name: prt_09
   m_TagString: slot_object
@@ -4904,11 +5024,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1990056246}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bed4a0f4355ecf84c8392cb65f6c08f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 1364cf00403067f43a37b68b6fa9cf40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MouseDown: 0
-  index: 0
 --- !u!212 &1990056250
 SpriteRenderer:
   m_ObjectHideFlags: 0

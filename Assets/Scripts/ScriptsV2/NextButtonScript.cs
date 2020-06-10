@@ -8,7 +8,7 @@ public class NextButtonScript : MonoBehaviour
 
     private void Start()
     {
-        c = GameObject.Find("SlotInData").GetComponent<SlotData>();
+        c = GameObject.Find("SlotData").GetComponent<SlotData>();
     }
     public void ActivateNextSlot()
     {
