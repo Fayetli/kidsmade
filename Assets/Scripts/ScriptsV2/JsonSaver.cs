@@ -1,37 +1,66 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class JsonSaver : MonoBehaviour
 {
+    string json;
 
-    void TransformSaving()
+    Vector3 startPosition;
+    Quaternion startRotation;
+    Vector3 startScale;
+
+    private void Start()
     {
-        SaveTransform save = new SaveTransform();
+        startPosition = this.transform.localPosition;
+        startRotation = this.transform.rotation;
+        startScale = this.transform.localScale;
+    }
 
-        save.positionX = this.transform.localPosition.x;
-        save.positionY = this.transform.localPosition.y;
+    void SaveSpriteTransorm()
+    {
+        SaveTransform data = new SaveTransform();
 
-        save.scaleX = this.transform.localScale.x;
-        save.scaleY = this.transform.localScale.y;
+        data.position = this.transform.localPosition;
+        data.rotation = this.transform.rotation;
+        data.scale = this.transform.localScale;
 
-        save.rotationZ = this.transform.rotation.z;
-
-
-        string json = JsonUtility.ToJson(save);
+        json = JsonUtility.ToJson(data, true);
         Debug.Log(json);
 
-        string name = "prt_1_" + this.name;//change it
+        //string name = "D:/" + this.name + ".txt";//
 
-        PlayerPrefs.SetString("trsave", json);//name //don`t use PlayerPrefs
+        //File.WriteAllText("D:/save.txt", json);
+    }
 
+    void SetSpriteTransform()
+    {
+        //string json;
+        //json = File.ReadAllText("D:/save.txt");
+
+        if (json != null && json.Length > 0)
+        {
+            SaveTransform data = null;
+            JsonUtility.FromJsonOverwrite(json, data);
+
+            if (data != null)
+            {
+                this.transform.localPosition = data.position;
+                this.transform.localScale = data.scale;
+                this.transform.rotation = data.rotation;
+            }
+        }
     }
 
 
-
-    private void Update()
+    private void Update()//example
     {
         if (Input.GetKeyDown(KeyCode.S))
-            TransformSaving();
+            SaveSpriteTransorm();
+        if (Input.GetKeyDown(KeyCode.L))
+            SetSpriteTransform();
     }
+
+    
 }

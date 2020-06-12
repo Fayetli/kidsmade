@@ -6,8 +6,8 @@ using System.Linq;
 
 public class SlotData : MonoBehaviour
 {
-    public GameObject[] slotsIn;
-    public GameObject[] panelsSlotsOut;
+    private GameObject[] slotsIn;
+    private GameObject[] panelsSlotsOut;
     private int counter = 0;
 
     public GameObject buttonNext;
@@ -19,7 +19,7 @@ public class SlotData : MonoBehaviour
         {
             for (int j = 0; j < array.Length - 1; j++)
             {
-                int indexX, indexY;
+                int indexX, indexY;//ref it
                 int.TryParse(string.Join("", array[j].name.Where(c => char.IsDigit(c))), out indexX);
                 int.TryParse(string.Join("", array[j + 1].name.Where(c => char.IsDigit(c))), out indexY);
 
@@ -33,12 +33,14 @@ public class SlotData : MonoBehaviour
         }
         Debug.Log("Sorting Complete!");
     }
-    void Start()//find all slotsIn, Panels with slotsOut, then disable all and activate only firsts
+    void Start()//find all slotsIn, Panels with slotsOut, disable all and activate only firsts
     {
+        buttonNext.SetActive(false);
+        buttonFinish.SetActive(false);
+
         counter = 0;
 
         slotsIn = GameObject.FindGameObjectsWithTag("SlotIn");
-
         foreach (GameObject x in slotsIn)
         {
             x.gameObject.SetActive(false);
@@ -51,7 +53,6 @@ public class SlotData : MonoBehaviour
         slotsIn[counter].GetComponent<Collider2D>().enabled = true;//
 
         panelsSlotsOut = GameObject.FindGameObjectsWithTag("PanelSlotOut");
-
         foreach (GameObject x in panelsSlotsOut)
         {
             x.gameObject.SetActive(false);
@@ -61,7 +62,7 @@ public class SlotData : MonoBehaviour
         panelsSlotsOut[counter].SetActive(true);
     }
 
-    public void ActivateNextSlot()//disable current slot and activate next slot
+    public void ActivateNextSlot()//disable current slot and panel and activate next slot and panel
     {
         Debug.Log("ActivateNextSlot");
 
@@ -80,14 +81,12 @@ public class SlotData : MonoBehaviour
             slotsIn[counter].GetComponent<Collider2D>().enabled = true;
         }
         
-        
         if(counter < panelsSlotsOut.Length)
             panelsSlotsOut[counter].SetActive(true);
     }
 
-    public void ActivateButton()
+    public void ActivateButton()//activate button "next" or button "finish" if it`s last slot
     {
-        Debug.Log("Activate Button!");
         if (counter < slotsIn.Length - 1)
         {
             Debug.Log("Counter: " + counter + ", button next activated!");
@@ -104,11 +103,5 @@ public class SlotData : MonoBehaviour
                 buttonFinish.gameObject.SetActive(true);
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

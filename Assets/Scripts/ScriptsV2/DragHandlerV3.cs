@@ -16,8 +16,6 @@ public class DragHandlerV3 : MonoBehaviour
         startParent = transform.parent;
         MouseDown = true;
         this.GetComponent<SpriteRenderer>().sortingOrder++;
-
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -69,7 +67,6 @@ public class DragHandlerV3 : MonoBehaviour
                 aux.GetComponent<SpriteRenderer>().enabled = true;
             }
             trigger = false;
-
         }
     }
 
@@ -80,20 +77,13 @@ public class DragHandlerV3 : MonoBehaviour
         Vector2 Cursor = Input.mousePosition;
         Cursor = Camera.main.ScreenToWorldPoint(Cursor);
 
-
         if (MouseDown == true)
         {
             this.transform.position = Cursor;
         }
         else
         {
-            if (trigger == true)
-            {
-                //this.GetComponent<SpriteRenderer>().enabled = false;
-            }
-
             this.transform.localPosition = new Vector3(0, 0, 0);
-
         }
     }
 }
