@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-
+using UnityEngine.SceneManagement;
 public class JsonSaver : MonoBehaviour
 {
     string json;
@@ -11,6 +11,12 @@ public class JsonSaver : MonoBehaviour
     Quaternion startRotation;
     Vector3 startScale;
 
+    public class SaveTransform
+    {
+        public Vector3 position;
+        public Quaternion rotation;
+        public Vector3 scale;
+    }
     private void Start()
     {
         startPosition = this.transform.localPosition;
@@ -18,8 +24,11 @@ public class JsonSaver : MonoBehaviour
         startScale = this.transform.localScale;
     }
 
-    void SaveSpriteTransorm()
+    public bool writing;
+    public void SaveSpriteTransorm()
     {
+        if (!writing)
+            return;
         SaveTransform data = new SaveTransform();
 
         data.position = this.transform.localPosition;
@@ -29,28 +38,40 @@ public class JsonSaver : MonoBehaviour
         json = JsonUtility.ToJson(data, true);
         Debug.Log(json);
 
-        //string name = "D:/" + this.name + ".txt";//
+        string sceneName = SceneManager.GetActiveScene().name;
+        string path = Application.dataPath + "/Resources/" + sceneName ;
 
-        //File.WriteAllText("D:/save.txt", json);
+        Directory.CreateDirectory(path);
+
+        int stateNumber = GameObject.Find("SlotData").GetComponent<SlotData>().GetCounter();
+        string jsonName = this.name + ".json";
+
+        path += "/" + stateNumber + "_" + jsonName;
+
+        Debug.Log(path);
+        File.WriteAllText(path, json);
     }
 
-    void SetSpriteTransform()
+    public void LoadSpriteTransform()
     {
-        //string json;
-        //json = File.ReadAllText("D:/save.txt");
+        string sceneName = SceneManager.GetActiveScene().name;
+        int stateNumber = GameObject.Find("SlotData").GetComponent<SlotData>().GetCounter();
+        string jsonName = this.name;
 
-        if (json != null && json.Length > 0)
-        {
-            SaveTransform data = null;
-            JsonUtility.FromJsonOverwrite(json, data);
+        string path = sceneName + '/' + stateNumber + '_' + jsonName;
 
-            if (data != null)
-            {
-                this.transform.localPosition = data.position;
-                this.transform.localScale = data.scale;
-                this.transform.rotation = data.rotation;
-            }
-        }
+        Debug.Log(path);
+
+        json = Resources.Load<TextAsset>(path).ToString();
+
+        Debug.Log(json);
+
+        SaveTransform data = JsonUtility.FromJson<SaveTransform>(json);
+
+        this.transform.localPosition = data.position;
+        this.transform.localScale = data.scale;
+        this.transform.rotation = data.rotation;
+
     }
 
 
@@ -59,8 +80,14 @@ public class JsonSaver : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S))
             SaveSpriteTransorm();
         if (Input.GetKeyDown(KeyCode.L))
-            SetSpriteTransform();
+            LoadSpriteTransform();
     }
 
-    
+
+    public void TakeToStartTransform()
+    {
+        this.transform.localPosition = startPosition;
+        this.transform.rotation = startRotation;
+        this.transform.localScale = startScale;
+    }
 }

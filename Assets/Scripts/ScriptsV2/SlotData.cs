@@ -10,8 +10,12 @@ public class SlotData : MonoBehaviour
     private GameObject[] panelsSlotsOut;
     private int counter = 0;
 
+
+
     public GameObject buttonNext;
     public GameObject buttonFinish;
+
+    public int GetCounter() { return counter; }
 
     void BubbleSort(GameObject[] array)//sorting for indexes
     {

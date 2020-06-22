@@ -51,6 +51,8 @@ public class DragHandlerV3 : MonoBehaviour
 
                 GameObject.Find("SlotData").GetComponent<SlotData>().ActivateButton();
 
+                this.GetComponent<JsonSaver>().LoadSpriteTransform();//change transform
+                //this.GetComponent<JsonSaver>().TakeToStartTransform();
                 //this.GetComponent<SpriteRenderer>().enabled = false;
             }
             else
@@ -65,6 +67,10 @@ public class DragHandlerV3 : MonoBehaviour
 
                 //this.GetComponent<SpriteRenderer>().enabled = false;
                 aux.GetComponent<SpriteRenderer>().enabled = true;
+
+                aux.GetComponent<JsonSaver>().TakeToStartTransform();//change transform
+
+                this.GetComponent<JsonSaver>().LoadSpriteTransform();//change transform
             }
             trigger = false;
         }
@@ -83,7 +89,8 @@ public class DragHandlerV3 : MonoBehaviour
         }
         else
         {
-            this.transform.localPosition = new Vector3(0, 0, 0);
+            if(this.gameObject.transform.parent.gameObject.tag != "SlotIn")
+                this.transform.localPosition = new Vector3(0, 0, 0);
         }
     }
 }
