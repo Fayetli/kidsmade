@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using UnityEngine.SceneManagement;
+using System;
+
 public class JsonSaver : MonoBehaviour
 {
-    string json;
-
     Vector3 startPosition;
     Quaternion startRotation;
     Vector3 startScale;
 
+    SlotData.SpritesTransformData.SaveTransform savedTransform = new SlotData.SpritesTransformData.SaveTransform();
     public class SaveTransform
     {
         public Vector3 position;
         public Quaternion rotation;
         public Vector3 scale;
+        public string name;
     }
     private void Start()
     {
@@ -24,65 +26,28 @@ public class JsonSaver : MonoBehaviour
         startScale = this.transform.localScale;
     }
 
-    public bool writing;
-    public void SaveSpriteTransorm()
+    public void SetSpriteTransorm(SlotData.SpritesTransformData.SaveTransform save)
     {
-        if (!writing)
-            return;
-        SaveTransform data = new SaveTransform();
+        savedTransform = save;
+    }
 
-        data.position = this.transform.localPosition;
-        data.rotation = this.transform.rotation;
-        data.scale = this.transform.localScale;
+    public SlotData.SpritesTransformData.SaveTransform GetSaveTransform()
+    {
+        SlotData.SpritesTransformData.SaveTransform save = new SlotData.SpritesTransformData.SaveTransform();
+        save.position = this.transform.localPosition;
+        save.rotation = this.transform.rotation;
+        save.scale = this.transform.localScale;
+        save.name = this.name;
 
-        json = JsonUtility.ToJson(data, true);
-        Debug.Log(json);
-
-        string sceneName = SceneManager.GetActiveScene().name;
-        string path = Application.dataPath + "/Resources/" + sceneName ;
-
-        Directory.CreateDirectory(path);
-
-        int stateNumber = GameObject.Find("SlotData").GetComponent<SlotData>().GetCounter();
-        string jsonName = this.name + ".json";
-
-        path += "/" + stateNumber + "_" + jsonName;
-
-        Debug.Log(path);
-        File.WriteAllText(path, json);
+        return save;
     }
 
     public void LoadSpriteTransform()
     {
-        string sceneName = SceneManager.GetActiveScene().name;
-        int stateNumber = GameObject.Find("SlotData").GetComponent<SlotData>().GetCounter();
-        string jsonName = this.name;
-
-        string path = sceneName + '/' + stateNumber + '_' + jsonName;
-
-        Debug.Log(path);
-
-        json = Resources.Load<TextAsset>(path).ToString();
-
-        Debug.Log(json);
-
-        SaveTransform data = JsonUtility.FromJson<SaveTransform>(json);
-
-        this.transform.localPosition = data.position;
-        this.transform.localScale = data.scale;
-        this.transform.rotation = data.rotation;
-
+        this.transform.localPosition = savedTransform.position;
+        this.transform.localScale = savedTransform.scale;
+        this.transform.rotation = savedTransform.rotation;
     }
-
-
-    private void Update()//example
-    {
-        if (Input.GetKeyDown(KeyCode.S))
-            SaveSpriteTransorm();
-        if (Input.GetKeyDown(KeyCode.L))
-            LoadSpriteTransform();
-    }
-
 
     public void TakeToStartTransform()
     {

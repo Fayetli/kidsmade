@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Linq;
+using System.IO;
+using UnityEngine.SceneManagement;
 
-public class SlotData : MonoBehaviour
+
+
+public class SlotData : MonoBehaviour//slots and panels activate, save slot_objects to json, load slot_objects from json
 {
     private GameObject[] slotsIn;
     private GameObject[] panelsSlotsOut;
     private int counter = 0;
 
-
+    public bool writing;
 
     public GameObject buttonNext;
     public GameObject buttonFinish;
@@ -39,6 +43,11 @@ public class SlotData : MonoBehaviour
     }
     void Start()//find all slotsIn, Panels with slotsOut, disable all and activate only firsts
     {
+        if (writing)
+            return;
+        //
+        LoadSpritesTransform();
+        //
         buttonNext.SetActive(false);
         buttonFinish.SetActive(false);
 
@@ -107,5 +116,97 @@ public class SlotData : MonoBehaviour
                 buttonFinish.gameObject.SetActive(true);
             }
         }
+    }
+
+
+    //////////////////////////////////////////////////////////////////////////////////
+
+
+    public string object_tag = "slot_object";
+    public string json_name = "paint_sprites";
+
+    [Serializable]
+    public class SpritesTransformData
+    {
+
+        public SaveTransform[] transforms;
+
+        [Serializable]
+        public class SaveTransform
+        {
+            public Vector3 position;
+            public Quaternion rotation;
+            public Vector3 scale;
+            public string name;
+        }
+        public SpritesTransformData(int len)
+        {
+            transforms = new SaveTransform[len];
+        }
+
+        public void SetTransform(SaveTransform obj, int index)
+        {
+            transforms[index] = new SaveTransform();
+            transforms[index] = obj;
+        }
+        
+    };
+    void SaveSpritesTransform()
+    {
+        GameObject[] sprites = GameObject.FindGameObjectsWithTag(object_tag);
+        BubbleSort(sprites);//maybe delete
+
+        SpritesTransformData data = new SpritesTransformData(sprites.Length);
+
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            data.SetTransform(sprites[i].GetComponent<JsonSaver>().GetSaveTransform(), i);
+        }
+
+        string sceneName = SceneManager.GetActiveScene().name;
+        string path = Application.dataPath + "/Resources/" + sceneName;
+
+        Directory.CreateDirectory(path);//create a directory if directory was not created
+        string json = JsonUtility.ToJson(data, true);
+
+        path += "/" + json_name + ".json";
+
+        File.WriteAllText(path, json);
+
+        Debug.Log("Save:" + json);
+    }
+
+
+    void LoadSpritesTransform()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        string path = sceneName + "/" + json_name;
+
+        string json = Resources.Load<TextAsset>(path).ToString();
+
+        Debug.Log("Load:" + json);
+
+        SpritesTransformData data = JsonUtility.FromJson<SpritesTransformData>(json);
+
+        GameObject[] sprites = GameObject.FindGameObjectsWithTag(object_tag);
+        BubbleSort(sprites);//maybe delete
+ 
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            SpritesTransformData.SaveTransform save = data.transforms[i];
+            sprites[i].GetComponent<JsonSaver>().SetSpriteTransorm(save);
+        }
+    }
+    //////////////////////////////////////////////////////////////////////////////////
+
+
+    private void Update()//example
+    {
+        if (!writing)
+            return;
+        if (Input.GetKeyDown(KeyCode.S))
+            SaveSpritesTransform();
+        if (Input.GetKeyDown(KeyCode.L))
+            LoadSpritesTransform();
     }
 }
