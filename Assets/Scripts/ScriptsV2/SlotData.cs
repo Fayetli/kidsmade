@@ -118,7 +118,7 @@ public class SlotData : MonoBehaviour//slots and panels activate, save slot_obje
         }
     }
 
-
+    
     //////////////////////////////////////////////////////////////////////////////////
 
 
@@ -196,6 +196,36 @@ public class SlotData : MonoBehaviour//slots and panels activate, save slot_obje
             SpritesTransformData.SaveTransform save = data.transforms[i];
             sprites[i].GetComponent<JsonSaver>().SetSpriteTransorm(save);
         }
+    }
+
+
+    public void LoadFinishSprites()
+    {
+        slotsIn[counter].GetComponent<SpriteRenderer>().enabled = false;
+        slotsIn[counter].GetComponent<Collider2D>().enabled = false;
+        slotsIn[counter].transform.GetChild(0).gameObject.GetComponent<Collider2D>().enabled = false;
+
+
+
+        for (int i = 0; i < slotsIn.Length; i++)
+        {
+            GameObject paint_sprite = slotsIn[i].transform.GetChild(0).gameObject;
+
+            int num_of_sprite = 0;
+            int.TryParse(string.Join("", paint_sprite.name.Where(c => char.IsDigit(c))), out num_of_sprite);
+
+            string sceneName = SceneManager.GetActiveScene().name;
+            string path = sceneName + "/" + "Symbols" + "/" + "symbol_";
+            if (num_of_sprite < 10)
+                path += "0";
+            path += num_of_sprite;
+
+            GameObject symbol = Resources.Load(path) as GameObject;
+            Instantiate(symbol, slotsIn[i].transform);
+
+            Destroy(paint_sprite);
+        }
+
     }
     //////////////////////////////////////////////////////////////////////////////////
 

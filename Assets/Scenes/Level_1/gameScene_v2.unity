@@ -1829,6 +1829,19 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1520832254}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &823406831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823406829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a596ce4a342632a499c69279005605fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slotData: {fileID: 388740703}
 --- !u!1 &832316899
 GameObject:
   m_ObjectHideFlags: 0
@@ -3799,6 +3812,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6594254226432604385, guid: 6e1a56bb512f1654fb98b44b9e0464eb,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 823406831}
+    - target: {fileID: 6594254226432604385, guid: 6e1a56bb512f1654fb98b44b9e0464eb,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: activateTruePictures
+      objectReference: {fileID: 0}
     - target: {fileID: 6594254226432604387, guid: 6e1a56bb512f1654fb98b44b9e0464eb,
         type: 3}
       propertyPath: m_Name
@@ -5463,6 +5486,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: object
+      objectReference: {fileID: 0}
+    - target: {fileID: 7420548530569470405, guid: 52ec10bf18b653b4c9748344e20e7ab8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7420548530569470411, guid: 52ec10bf18b653b4c9748344e20e7ab8,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 695933195
+      objectReference: {fileID: 0}
+    - target: {fileID: 7420548530569470411, guid: 52ec10bf18b653b4c9748344e20e7ab8,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7420548530569470411, guid: 52ec10bf18b653b4c9748344e20e7ab8,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 7420548530647954900, guid: 52ec10bf18b653b4c9748344e20e7ab8,
         type: 3}
